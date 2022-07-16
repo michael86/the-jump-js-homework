@@ -234,3 +234,35 @@ console.log(summary.join(', '));
 // slice (copying)
 // Q.21. Make a copy of your basket for a friend, but only the last 3 items
 const forFriend = basket.slice(basket.length - 3);
+
+
+//EXTENDED TASKS
+// Complete the code pen task from Tuesday
+// Extend that task to ensure you are familiar with the key syntax we covered this evening
+
+// Create a fat arrow function that accepts no parameters
+const someFunction = () => {
+    console.log('yay arrow functions');
+};
+
+// Create a fat arrow function that accepts one parameter
+// Make one of the above return a value on a single line(rather than using return)
+// Extend one of the above to use a default value
+const someNewFunction = (myNum = 0) => myNum * 10
+
+// Create a template literal string
+console.log(`this is a template literal and 4 * 4 is: ${4 * 4}`);
+
+// Create an object and use object destructing to pull parts of the data out
+const data = {
+    firstName: 'John',
+    lastName: 'Smith',
+    age: 40,
+};
+
+const { firstName, lastName, age } = data;
+
+// Do the same for an array
+const colors = ['red', 'green', 'blue'];
+const [colorOne, colorTwo, colorThree] = colors;
+
