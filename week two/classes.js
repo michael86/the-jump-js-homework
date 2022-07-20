@@ -32,8 +32,8 @@ class Combustion extends Motorbike {
     #litresHeld;
     #isDiesel;
 
-    constructor(make, model, cc, litresHeld, isDiesel) {
-        super(make, model, cc);
+    constructor(make, model, bhp, litresHeld, isDiesel) {
+        super(make, model, bhp);
         this.#litresHeld = litresHeld
         this.#isDiesel = isDiesel;
     };
@@ -51,8 +51,8 @@ class Electric extends Motorbike {
     #batteryCapacity
     #timeToCharge;
 
-    constructor(make, model, cc, batteryCapacity, timeToCharge) {
-        super(make, model, cc);
+    constructor(make, model, bhp, batteryCapacity, timeToCharge) {
+        super(make, model, bhp);
         this.#batteryCapacity = batteryCapacity;
         this.#timeToCharge = timeToCharge;
     };
@@ -68,8 +68,8 @@ class Electric extends Motorbike {
 
 class Retro extends Combustion {
     #isRetro;
-    constructor(make, model, cc, litresHeld, isDiesel, year) {
-        super(make, model, cc, litresHeld, isDiesel)
+    constructor(make, model, bhp, litresHeld, isDiesel, year) {
+        super(make, model, bhp, litresHeld, isDiesel)
         this.#isRetro = year <= 1930;
     }
 
@@ -81,8 +81,8 @@ class Retro extends Combustion {
 class solarCharged extends Electric {
     #isSolar;
 
-    constructor(make, model, cc, batteryCapacity, timeToCharge, supportsSolar) {
-        super(make, model, cc, batteryCapacity, timeToCharge)
+    constructor(make, model, bhp, batteryCapacity, timeToCharge, supportsSolar) {
+        super(make, model, bhp, batteryCapacity, timeToCharge)
         this.#isSolar = supportsSolar;
     }
 
@@ -91,12 +91,11 @@ class solarCharged extends Electric {
     }
 }
 
-
 const combustionVehicle = {
     make: 'Yamaha',
     model: 'YZF-R',
     bhp: 13,
-    tankCapacity: 11.0,
+    litresHeld: 11.0,
     isDiesel: false,
     year: 1930,
 }
@@ -107,7 +106,7 @@ const electricVehicle = {
     bhp: 1006,
     batteryCapacity: 100,
     timeToCharge: 9,
-    solarCharged: false,
+    supportsSolar: false,
 }
 
 const _yamaha = new Retro(
@@ -125,7 +124,7 @@ const _tesla = new solarCharged(
     electricVehicle.bhp,
     electricVehicle.batteryCapacity,
     electricVehicle.timeToCharge,
-    electricVehicle.solarCharged
+    electricVehicle.supportsSolar
 );
 
 console.log(_yamaha.getBhp());
