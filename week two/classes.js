@@ -1,9 +1,3 @@
-class Validate extends String {
-    static isString(val) {
-        return typeof val === 'string'
-    }
-}
-
 class Motorbike {
     #make;
     #model;
